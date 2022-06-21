@@ -3,17 +3,17 @@ package data
 import (
 	"bufio"
 	"fmt"
-	//"olx/user"
 	"os"
 	"strconv"
 	"strings"
 )
 
 type Product struct {
-	Name     string
-	TraderId string
-	Price    uint
-	Type     string
+	Name       string
+	TraderId   string
+	Price      uint
+	Type       string
+	TraderName string
 }
 
 var products []Product
@@ -40,6 +40,7 @@ func convert(data string, id string) Product {
 	p.Type = line[3]
 	str, err := strconv.Atoi(line[2])
 	p.Price = uint(str)
+	p.TraderName = line[4]
 	if err != nil {
 		fmt.Println("can't read file")
 		return p
@@ -61,6 +62,8 @@ func WritePro(pro Product) error {
 	u += str
 	u += " "
 	u += pro.Type
+	u += " "
+	u += pro.TraderName
 	if _, err := file.WriteString("\n"); err != nil {
 		return err
 	}
@@ -69,13 +72,3 @@ func WritePro(pro Product) error {
 	}
 	return nil
 }
-
-//func SignUp() {
-//	user.SignUp()
-//}
-//func SignIn() error {
-//	if err := user.SignIn(); err != nil {
-//		return err
-//	}
-//	return nil
-//}

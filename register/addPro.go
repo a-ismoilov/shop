@@ -5,9 +5,9 @@ import (
 	"olx/data"
 )
 
-var id string
+var id, name string
 
-func New() {
+func New() string {
 
 	p := data.Product{}
 
@@ -16,7 +16,7 @@ func New() {
 		if _, err := fmt.Scan(&p.Name); err != nil {
 			fmt.Print("can't read pro name")
 		}
-		fmt.Print("Enter product price")
+		fmt.Print("Enter product price >>> ")
 		if _, err := fmt.Scan(&p.Price); err != nil {
 			fmt.Print("can't read pro price")
 		}
@@ -37,17 +37,18 @@ func New() {
 		}
 
 		p.TraderId = id
+		p.TraderName = name
 
 		if err := data.WritePro(p); err != nil {
 			fmt.Print("can't write pro")
-			return
+			return id
 		} else {
 			fmt.Print("Successfully added pro")
-			return
+			return id
 		}
 	} else {
 		fmt.Print("can't add")
-		return
+		return id
 	}
 }
 
@@ -86,6 +87,7 @@ func check(nameUser string, password string) bool {
 		if v.Name == nameUser {
 			if v.Password == password {
 				id = v.Id
+				name = v.Name
 				check++
 			}
 		}
