@@ -1,0 +1,4 @@
+GalaxyA10s 6ab7d242-d943-4e3b-b612-52fb09e8eedc 1200000 Gold
+GalaxyA30 6ab7d242-d943-4e3b-b612-52fb09e8eedc 1700000 Gold
+ScooterX3 638516e8-4eb1-4e2c-a1df-8f417a68b357 12000 Bronze
+SeniJannatdakutaman 638516e8-4eb1-4e2c-a1df-8f417a68b357 20000 Gold
