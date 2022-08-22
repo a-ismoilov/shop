@@ -1,4 +1,4 @@
-module olx
+module github.com/AbduRohman-developer/shop
 
 go 1.17
 
